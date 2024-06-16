@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27b7ad8abeec4827952b43adf4d36da, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  heroPrefab: {fileID: 7332299378198584097, guid: da04792113845415caf26f800a4235a4, type: 3}
+  animalPrefab: {fileID: 657676880204609522, guid: 4adbf1e4cd4e9441997f4f746041903f, type: 3}
+  maxAnimalsInGroup: 5
+  initialAnimalCount: 10
+  heroSpeed: 5
+  animalSpeed: 1
