@@ -5,11 +5,11 @@ namespace InnovecsTest
     public class FollowBehaviour : IBehaviour
     {
         private Transform _heroTransform;
-        private Animal _animal;
+        private IEntity _animal;
         private int _followsCount;
         private Vector3 _offset;
 
-        public FollowBehaviour(Animal animal, Transform heroTransform, int followsCount)
+        public FollowBehaviour(IEntity animal, Transform heroTransform, int followsCount)
         {
             _heroTransform = heroTransform;
             _followsCount = followsCount;

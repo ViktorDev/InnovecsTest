@@ -15,7 +15,7 @@ namespace InnovecsTest
         public IEntity CreateEntity()
         {
             GameObject _heroObject = Object.Instantiate(_heroPrefab);
-            MainHero _entity = new MainHero(_heroObject.transform);
+            IEntity _entity = new MainHero(_heroObject.transform);
             return _entity;
         }
     }

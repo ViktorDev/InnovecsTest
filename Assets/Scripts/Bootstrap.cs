@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using InnovecsTest.Load;
 
 namespace InnovecsTest
 {
@@ -24,8 +23,8 @@ namespace InnovecsTest
         {
             SpawnManager _spawnManager = new SpawnManager(_gameData);
 
-            List<Animal> _animals = _spawnManager.SpawnAnimals();
-            MainHero _hero = _spawnManager.SpawnHero();
+            List<IEntity> _animals = _spawnManager.SpawnAnimals();
+            IEntity _hero = _spawnManager.SpawnHero();
 
             MainHeroController _heroController = new MainHeroController(_hero, _gameData);
             AnimalsController _animalsController = new AnimalsController(_animals, _gameData);

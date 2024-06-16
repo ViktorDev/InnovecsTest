@@ -4,11 +4,11 @@ namespace InnovecsTest
 {
     public class PatrolBehaviour : IBehaviour
     {
-        private Animal _animal;
+        private IEntity _animal;
         private Vector3 _targetPosition;
         private float _speed;
 
-        public PatrolBehaviour(Animal animal, float speed)
+        public PatrolBehaviour(IEntity animal, float speed)
         {
             _animal = animal;
             _targetPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);

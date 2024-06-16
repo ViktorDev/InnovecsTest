@@ -6,29 +6,19 @@ namespace InnovecsTest
 {
     public class Animal : IEntity
     {
-        public IBehaviour Behaviour
-        {
-            get
-            {
-                return _behaviour;
-            }
-            set
-            {
-                _behaviour = value;
-            }
-        }
-        private IBehaviour _behaviour;
-        public Transform Transform => _transform;
-        private Transform _transform;
+        public Transform Transform { get; set; }
+        public IBehaviour Behaviour { get; set; }
 
         public Animal(Transform transform)
         {
-            _transform = transform;
+            Transform = transform;
         }
+
+
 
         public void Spawn(Vector3 position)
         {
-            _transform.position = position;
+            Transform.position = position;
             Debug.Log("Animal spawned at " + position);
         }
     }

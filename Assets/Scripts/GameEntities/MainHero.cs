@@ -4,16 +4,17 @@ namespace InnovecsTest
 {
     public class MainHero : IEntity
     {
-        public Transform Transform => _transform;
-        private Transform _transform;
+        public Transform Transform { get; set; }
+        public IBehaviour Behaviour { get; set; }
 
         public MainHero(Transform transform)
         {
-            _transform = transform;
+            Transform = transform;
         }
+
         public void Spawn(Vector3 position)
         {
-            _transform.position = position;
+            Transform.position = position;
             Debug.Log("MainHero spawned at " + position);
         }
     }

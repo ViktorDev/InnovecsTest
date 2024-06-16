@@ -7,33 +7,18 @@ namespace InnovecsTest
 {
     public class MainHeroController
     {
-        private GameData _gameData;
-        private MainHero _hero;
-        private Vector3 _targetPosition;
-
-        public MainHeroController(MainHero hero, GameData gameData)
+        private IEntity _hero;
+        public MainHeroController(IEntity hero, GameData gameData)
         {
-            _gameData = gameData;
             _hero = hero;
+            _hero.Behaviour = new MoveBehaviour(gameData, _hero);
 
-            MessageBroker.Default.Receive<HeroClickedMessage>()
-              .Subscribe(message => SetTargetPos(message.Position))
-              .AddTo(_hero.Transform);
-
-            Observable.EveryUpdate().Subscribe(upd => { Move(); }).AddTo(_hero.Transform);
+            Observable.EveryUpdate().Subscribe(upd => { Update(); }).AddTo(hero.Transform);
         }
 
-        private void SetTargetPos(Vector3 position)
+        private void Update()
         {
-            _targetPosition = position;
-        }
-
-        private void Move()
-        {
-            if ((_targetPosition - _hero.Transform.position).magnitude > 0.1f)
-            {
-                _hero.Transform.position = Vector3.MoveTowards(_hero.Transform.position, _targetPosition, _gameData.heroSpeed * Time.deltaTime);
-            }
+            _hero.Behaviour.Update();
         }
     }
 }

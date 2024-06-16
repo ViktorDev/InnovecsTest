@@ -11,9 +11,9 @@ namespace InnovecsTest
             _gameData = gameData;
         }
 
-        public List<Animal> SpawnAnimals()
+        public List<IEntity> SpawnAnimals()
         {
-            List<Animal> _animals = new List<Animal>();
+            List<IEntity> _animals = new List<IEntity>();
             IEntityFactory _animalsFactory = new AnimalsFactory(_gameData.animalPrefab);
 
             for (int i = 0; i < _gameData.initialAnimalCount; i++)
@@ -21,18 +21,18 @@ namespace InnovecsTest
                 Vector2 randomPosition = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
                 IEntity _animal = _animalsFactory.CreateEntity();
                 _animal.Spawn(randomPosition);
-                _animals.Add(_animal as Animal);
+                _animals.Add(_animal);
             }
 
             return _animals;
         }
 
-        public MainHero SpawnHero()
+        public IEntity SpawnHero()
         {
             IEntityFactory _heroFactory = new MainHeroFactory(_gameData.heroPrefab);
             IEntity _hero = _heroFactory.CreateEntity();
             _hero.Spawn(Vector3.zero);
-            return _hero as MainHero;
+            return _hero;
         }
     }
 }

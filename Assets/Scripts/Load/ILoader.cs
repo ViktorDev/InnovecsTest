@@ -1,4 +1,4 @@
-namespace InnovecsTest.Load
+namespace InnovecsTest
 {
     public interface ILoader<T>
     {

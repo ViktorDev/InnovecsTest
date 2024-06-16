@@ -7,11 +7,11 @@ namespace InnovecsTest
     public class Collector
     {
         private GameData _gameData;
-        private MainHero _hero;
-        private List<Animal> _animals = new List<Animal>();
-        private List<Animal> _followingAnimals = new List<Animal>();
+        private IEntity _hero;
+        private List<IEntity> _animals = new List<IEntity>();
+        private List<IEntity> _followingAnimals = new List<IEntity>();
 
-        public Collector(GameData gameData, MainHero hero, List<Animal> animals)
+        public Collector(GameData gameData, IEntity hero, List<IEntity> animals)
         {
             _gameData = gameData;
             _hero = hero;
@@ -52,7 +52,7 @@ namespace InnovecsTest
             }
         }
 
-        private void ChangeBehaviour(Animal animal, Transform heroTransform)
+        private void ChangeBehaviour(IEntity animal, Transform heroTransform)
         {
             if (_followingAnimals.Count < _gameData.maxAnimalsInGroup && animal.Behaviour is PatrolBehaviour)
             {

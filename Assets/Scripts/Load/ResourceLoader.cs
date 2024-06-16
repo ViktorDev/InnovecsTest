@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace InnovecsTest.Load
+namespace InnovecsTest
 {
     public class ResourceLoader : ILoader<GameData>
     {

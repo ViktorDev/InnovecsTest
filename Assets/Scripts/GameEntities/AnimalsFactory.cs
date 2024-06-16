@@ -15,7 +15,7 @@ namespace InnovecsTest
         public IEntity CreateEntity()
         {
             GameObject _animalObject = Object.Instantiate(_animalPrefab);
-            Animal _entity = new Animal(_animalObject.transform);
+            IEntity _entity = new Animal(_animalObject.transform);
             return _entity;
         }
     }

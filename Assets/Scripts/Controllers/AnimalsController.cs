@@ -6,10 +6,10 @@ namespace InnovecsTest
 {
     public class AnimalsController
     {
-        private List<Animal> _animals = new List<Animal>();
+        private List<IEntity> _animals = new List<IEntity>();
         private GameData _gameData;
 
-        public AnimalsController(List<Animal> animals, GameData gameData)
+        public AnimalsController(List<IEntity> animals, GameData gameData)
         {
             _animals = animals;
             _gameData = gameData;
