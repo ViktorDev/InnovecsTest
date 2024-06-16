@@ -8,7 +8,6 @@ namespace InnovecsTest
     public class AnimalsController
     {
         private List<Animal> _animals = new List<Animal>();
-        private List<Animal> _followAnimals = new List<Animal>();
         private GameData _gameData;
 
         public AnimalsController(List<Animal> animals, GameData gameData)
@@ -20,16 +19,14 @@ namespace InnovecsTest
                 _animals[i].Behaviour = new PatrolBehaviour(_animals[i], _gameData.animalSpeed);
             }
 
-            MessageBroker.Default.Receive<AnimalStartFollow>()
-             .Subscribe(ani => ChangeBehaviour(ani.Animal, ani.HeroTransform));
+            Observable.EveryUpdate().Subscribe(upd => { Update(); });
         }
 
-        private void ChangeBehaviour(Animal animal, Transform heroTransform)
+        private void Update()
         {
-            if (_followAnimals.Count < _gameData.maxAnimalsInGroup && animal.Behaviour is PatrolBehaviour)
+            foreach (var animal in _animals)
             {
-                _followAnimals.Add(animal);
-                animal.Behaviour = new FollowBehaviour(animal, heroTransform, _followAnimals.Count);
+                animal.Behaviour.Update();
             }
         }
     }

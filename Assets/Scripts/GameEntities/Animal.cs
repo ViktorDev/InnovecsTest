@@ -15,7 +15,6 @@ namespace InnovecsTest
             set
             {
                 _behaviour = value;
-                Observable.EveryUpdate().Subscribe(upd => { _behaviour.Update(); }).AddTo(_transform);
             }
         }
         private IBehaviour _behaviour;

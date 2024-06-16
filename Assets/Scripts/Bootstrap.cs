@@ -12,22 +12,12 @@ namespace InnovecsTest
         {
             LoadData();
             SpawnEninies();
-            SetupSubscriptions();
         }
 
         private void LoadData()
         {
             ILoader<GameData> _loader = new ResourceLoader();
             _gameData = _loader.Load("GameData");
-        }
-
-        private void SetupSubscriptions()
-        {
-            //MessageBroker.Default.Receive<AnimalReachedYardMessage>()
-            //    .Subscribe(_ => uiController.IncreaseScore())
-            //    .AddTo(this);
-
-
         }
 
         private void SpawnEninies()
@@ -37,8 +27,9 @@ namespace InnovecsTest
             List<Animal> _animals = _spawnManager.SpawnAnimals();
             MainHero _hero = _spawnManager.SpawnHero();
 
-            MainHeroController _heroController = new MainHeroController(_hero, _animals, _gameData);
+            MainHeroController _heroController = new MainHeroController(_hero, _gameData);
             AnimalsController _animalsController = new AnimalsController(_animals, _gameData);
+            Collector _collector = new Collector(_gameData, _hero, _animals);
         }
     }
 }
