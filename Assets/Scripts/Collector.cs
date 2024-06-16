@@ -38,7 +38,7 @@ namespace InnovecsTest
         {
             foreach (var animal in _followingAnimals)
             {
-                if (animal.Transform.position.x >= 7f)
+                if (animal.Transform.position.x >= 6f)
                 {
                     MessageBroker.Default.Publish(new AnimalReachedYardMessage());
 
